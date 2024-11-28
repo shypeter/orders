@@ -33,6 +33,7 @@ ORDER BY may_amount DESC
 LIMIT 10
 ```
 這樣程式碼只需要針對要分析的月份表格進行操作，效能可以大幅提升
+
 2. 根據第一點資料表設計的優化，建立索引
   * currency
   * bnb_id
