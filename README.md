@@ -24,9 +24,19 @@ orders_202404
 orders_202405
 orders_202406
 ...
+SELECT a.bnb_id AS bnb_id, b.name AS bnb_name, SUM(amount) AS may_amount
+FROM orders AS a
+LEFT JOIN bnbs AS b ON a.bnb_id = b.id
+WHERE currency = 'TWD'
+GROUP BY a.bnb_id
+ORDER BY may_amount DESC
+LIMIT 10
 ```
-這樣程式碼只需要針對要分析的月份進行 select，效能可以大幅提升
-2. :資料表 orders 建立 currency 與 bnb_id 的索引
+這樣程式碼只需要針對要分析的月份表格進行操作，效能可以大幅提升
+2. 根據第一點資料表設計的優化，建立索引
+  * currency
+  * bnb_id
+  * currency, bnb_id 組合索引
 
 ## API 實作測驗
 
