@@ -25,7 +25,7 @@ orders_202405
 orders_202406
 ...
 SELECT a.bnb_id AS bnb_id, b.name AS bnb_name, SUM(amount) AS may_amount
-FROM orders AS a
+FROM orders_202405 AS a
 LEFT JOIN bnbs AS b ON a.bnb_id = b.id
 WHERE currency = 'TWD'
 GROUP BY a.bnb_id
